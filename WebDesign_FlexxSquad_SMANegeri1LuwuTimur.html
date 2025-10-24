@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solusi Interaktif Lokal - Awal Detail</title>
+<style>
+body{margin:0;font-family:sans-serif;background:#0b101d;color:#e6f1ff;}
+header{text-align:center;padding:50px;}
+h1,h2{color:#00bfff;text-shadow:0 0 15px #00bfff;}
+.nav-btn,.action-btn{margin:10px;padding:10px 20px;border:none;border-radius:20px;background:#00bfff;color:#0b101d;font-weight:bold;cursor:pointer;}
+.nav-btn:hover,.action-btn:hover{background:#1de0ff;}
+.page{display:none;opacity:0;transition:0.5s;}
+.page.active{display:block;opacity:1;}
+.features{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;margin-top:30px;}
+.feature{background:rgba(255,255,255,0.05);padding:20px;border-radius:10px;text-align:center;max-width:300px;}
+.feature svg{width:50px;height:50px;fill:#00bfff;margin-bottom:10px;}
+.feature p{margin:5px 0;}
+.particles{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;overflow:hidden;}
+.particle{position:absolute;width:4px;height:4px;background:#00bfff;border-radius:50%;opacity:0.6;animation:float 12s linear infinite;}
+@keyframes float{0%{transform:translateY(0);}50%{transform:translateY(-200px);}100%{transform:translateY(0);}}
+@media(max-width:768px){header{padding:30px;} .features{flex-direction:column;align-items:center;}} 
+</style>
+</head>
+<body>
+<div class="particles"></div>
+
+<header>
+<h1>Solusi Interaktif Lokal</h1>
+<nav>
+<button class="nav-btn" onclick="showPage('beranda')">Beranda</button>
+<button class="nav-btn" onclick="showPage('tentang')">Tentang</button>
+<button class="nav-btn" onclick="showPage('fitur')">Fitur</button>
+<button class="nav-btn" onclick="showPage('edukasi')">Edukasi</button>
+</nav>
+</header>
+
+<main>
+<section id="beranda" class="page active">
+<h2>Beranda</h2>
+<p>Selamat datang di prototipe awal Solusi Interaktif Lokal dengan penjelasan fitur lengkap.</p>
+<button class="action-btn" onclick="showPage('fitur')">Mulai Eksplorasi</button>
+</section>
+
+<section id="tentang" class="page">
+<h2>Tentang Kami</h2>
+<p>Kami menghadirkan solusi digital interaktif untuk komunitas lokal, menggabungkan teknologi dan partisipasi masyarakat.</p>
+<button class="action-btn" onclick="showPage('beranda')">Kembali Beranda</button>
+</section>
+
+<section id="fitur" class="page">
+<h2>Fitur Utama</h2>
+<div class="features">
+<div class="feature">
+<svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+<h3>Interaksi Digital</h3>
+<p>- Kolaborasi real-time antar anggota komunitas</p>
+<p>- Diskusi, voting, dan berbagi ide secara online</p>
+<p>- Feedback instan untuk penyelesaian masalah lebih cepat</p>
+</div>
+
+<div class="feature">
+<svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2m2 4H3v-2h2v2m0-8H3V7h2v2"/></svg>
+<h3>Analisis Lokal</h3>
+<p>- Kumpulkan data aktivitas komunitas</p>
+<p>- Visualisasi data berupa grafik atau peta interaktif</p>
+<p>- Membantu pengambilan keputusan berbasis data</p>
+<p>- Evaluasi kinerja proyek secara efisien</p>
+</div>
+
+<div class="feature">
+<svg viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9a8.998 8.998 0 0 0 14.25 7.34l1.43 1.43L19.84 19l-1.43-1.43A8.964 8.964 0 0 0 21 12c0-4.97-4.03-9-9-9Z"/></svg>
+<h3>Integrasi Teknologi</h3>
+<p>- Gabungkan berbagai platform digital dalam satu ekosistem</p>
+<p>- Koordinasi antar perangkat dan pengguna lebih mudah</p>
+<p>- Informasi lebih terintegrasi dan efisien</p>
+</div>
+</div>
+<button class="action-btn" onclick="showPage('edukasi')">Zona Edukasi</button>
+</section>
+
+<section id="edukasi" class="page">
+<h2>Zona Edukasi</h2>
+<p>Bagian edukasi memberikan informasi mendalam tentang manfaat teknologi interaktif untuk komunitas lokal:</p>
+<ul>
+<li><b>Akses Informasi Cepat:</b> Masyarakat dapat memperoleh informasi proyek dan kegiatan komunitas secara instan.</li>
+<li><b>Meningkatkan Partisipasi:</b> Memudahkan warga untuk ikut serta dalam keputusan atau kegiatan komunitas.</li>
+<li><b>Pengambilan Keputusan Berbasis Data:</b> Data lokal dianalisis untuk membantu pengambilan keputusan yang lebih tepat.</li>
+<li><b>Kolaborasi Lintas Sektor:</b> Memfasilitasi koordinasi antara warga, pemerintah, dan LSM.</li>
+<li><b>Pemanfaatan Teknologi Bijak:</b> Edukasi cara membaca data dan menggunakan teknologi dengan efektif.</li>
+</ul>
+<button class="action-btn" onclick="showPage('beranda')">Kembali Beranda</button>
+</section>
+</main>
+
+<script>
+const container = document.querySelector('.particles');
+for(let i=0;i<30;i++){
+  const p=document.createElement('div');
+  p.className='particle';
+  p.style.left=Math.random()*100+'%';
+  p.style.top=Math.random()*100+'%';
+  p.style.animationDelay=Math.random()*10+'s';
+  container.appendChild(p);
+}
+
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+</script>
+
+</body>
+</html>
